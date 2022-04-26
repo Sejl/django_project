@@ -11,8 +11,8 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     # override save method to save smaller img file
-    def save(self):
-        super().save()   # run save method of the parent class, save image
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)   # run save method of the parent class, save image
 
         img = Image.open(self.image.path) # open image
 
